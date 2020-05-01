@@ -1,3 +1,5 @@
+# strong password RegEx checker
+
 import re
 
 passwrdchck = re.compile(
