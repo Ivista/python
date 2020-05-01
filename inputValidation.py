@@ -29,3 +29,9 @@ print(responce)
 # Just as you can pass a string to input() to provide a prompt, you can pass a string to a PyInputPlus function’s prompt keyword argument to display a prompt:
 
 responce = input('Enter a Number')
+
+responce = pyip.inputInt(prompt='Enter a Number!')
+
+print(responce)
+
+help(pyip.inputChoice)
