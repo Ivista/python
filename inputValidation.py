@@ -55,9 +55,9 @@ print(responce)
 
 
 
-#----------------------------------------------------------------
-
-# The inputNum(), inputInt(), and inputFloat() functions, which accept int and float numbers, also have min, max, greaterThan, and lessThan keyword arguments for specifying a range of valid values. For example, enter the following into the interactive shell:
+# #----------------------------------------------------------------
+# The blank Keyword Argument
+# By default, blank input isn’t allowed unless the blank keyword argument is set to True:
 
 responce = pyip.inputNum('Enter Num: ')
 print(responce)
