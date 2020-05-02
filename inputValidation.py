@@ -66,3 +66,21 @@ responce = pyip.inputNum('Enter Num: ', blank=True)
 print(responce)
 
 # Use blank = True if you’d like to make input optional so that the user doesn’t need to enter anything.
+
+#-----------------------------------------------------------------------
+
+# The limit, timeout, and default Keyword Arguments
+# By default, the PyInputPlus functions will continue to ask the user for valid input forever(or for as long as the program runs). If you’d like a function to stop asking the user for input after a certain number of tries or a certain amount of time, you can use the limit and timeout keyword arguments. Pass an integer for the limit keyword argument to determine how many attempts a PyInputPlus function will make to receive valid input before giving up, and pass an integer for the timeout keyword argument to determine how many seconds the user has to enter valid input before the PyInputPlus function gives up.
+
+# If the user fails to enter valid input, these keyword arguments will cause the function to raise a RetryLimitException or TimeoutException, respectively. For example, enter the following into the interactive shell:
+
+responce = pyip.inputNum(limit=3)
+
+responce = pyip.inputNum('Enter num in 10 seconds', timeout=10)
+
+print(responce)
+
+# When you use these keyword arguments and also pass a default keyword argument, the function returns the default value instead of raising an exception. Enter the following into the interactive shell:
+
+responce = pyip.inputNum('Enter a Number: ', limit=2, default='N/A')
+print(responce)
