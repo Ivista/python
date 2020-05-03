@@ -84,3 +84,17 @@ print(responce)
 
 responce = pyip.inputNum('Enter a Number: ', limit=2, default='N/A')
 print(responce)
+
+# #---------------------------------------------------
+# The allowRegexes and blockRegexes Keyword Arguments
+# You can also use regular expressions to specify whether an input is allowed or not. The allowRegexes and blockRegexes keyword arguments take a list of regular expression strings to determine what the PyInputPlus function will accept or reject as valid input. For example, enter the following code into the interactive shell so that inputNum() will accept Roman numerals in addition to the usual numbers:
+
+
+responce = pyip.inputNum(allowRegexes=[r'(I|V|X|L|C|D|M)+', r'zero'])
+
+print(responce)
+
+#--------------------------------------------------------------------------
+# You can also specify a list of regular expression strings that a PyInputPlus function won’t accept by using the blockRegexes keyword argument. Enter the following into the interactive shell so that inputNum() won’t accept even numbers:
+
+responce = pyip.inputNum(blockRegexes=[r'[02468]'])
