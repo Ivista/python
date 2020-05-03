@@ -98,3 +98,30 @@ print(responce)
 # You can also specify a list of regular expression strings that a PyInputPlus function won’t accept by using the blockRegexes keyword argument. Enter the following into the interactive shell so that inputNum() won’t accept even numbers:
 
 responce = pyip.inputNum(blockRegexes=[r'[02468]'])
+
+#-----------------------------------------------------
+# Passing a Custom Validation Function to inputCustom()
+# You can write a function to perform your own custom validation logic by passing the function to inputCustom(). For example, say you want the user to enter a series of digits that adds up to 10. There is no pyinputplus.inputAddsUpToTen() function, but you can create your own function that:
+# Accepts a single string argument of what the user entered
+# Raises an exception if the string fails validation
+# Returns None (or has no return statement) if inputCustom() should return the string unchanged
+# Returns a non-None value if inputCustom() should return a different string from the one the user entered
+# Is passed as the first argument to inputCustom()
+# For example, we can create our own addsUpToTen() function, and then pass it to inputCustom(). Note that the function call looks like inputCustom(addsUpToTen) and not inputCustom(addsUpToTen()) because we are passing the addsUpToTen() function itself to inputCustom(), not calling addsUpToTen() and passing its return value.
+
+#see the for loop which changes string digits in a list into integer values in the same list
+#this one is worth noting for the future.
+
+
+def addsUpToTen(numbers):
+    numberslist = list(numbers)
+    for i, digit in enumerate(numberslist):
+        numberslist[i] = int(digit)
+    if sum(numberslist) != 10:
+        raise Exception('The digits must add up to 10, not %s. ' %
+                        (sum(numberslist)))
+    return int(numbers)
+
+
+responce = pyip.inputCustom(addsUpToTen)
+#---------------------------------------------------------------------------
