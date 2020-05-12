@@ -73,3 +73,23 @@ for rowOfCellObjects in sheet['A1':'C3']:
     for cellObj in rowOfCellObjects:
         print(cellObj.coordinate, cellObj.value)
     print('------End Of Row------')
+
+#---------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------
+
+wb = openpyxl.load_workbook('example.xlsx')
+
+sheet = wb.active
+
+print(list(sheet.rows)[2])
+
+# Gives a list of 7 tuples which contains all the rows, the above goes to row 3.
+print(list(sheet.rows))
+
+print(sheet.rows)
+
+for cellObj in list(sheet.rows)[2]:
+    print(cellObj.value)
+
+# Using the rows attribute on a Worksheet object will give you a tuple of tuples. Each of these inner tuples represents a row, and contains the Cell objects in that row. The columns attribute also gives you a tuple of tuples, with each of the inner tuples containing the Cell objects in a particular column. For example.xlsx, since there are 7 rows and 3 columns, rows gives us a tuple of 7 tuples(each containing 3 Cell objects), and columns gives us a tuple of 3 tuples(each containing 7 Cell objects).To access one particular tuple, you can refer to it by its index in the larger tuple. For example, to get the tuple that represents column B, you use list(sheet.columns)[1]. To get the tuple containing the Cell objects in column A, you’d use list(sheet.columns)[0]. Once you have a tuple representing one row or column, you can loop through its Cell objects and print their values.
