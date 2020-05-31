@@ -233,4 +233,17 @@ myCats.cats[0]['name']
 
 # The benefit of creating a .py file(as opposed to saving variables with the shelve module) is that because it is a text file, the contents of the file can be read and modified by anyone with a simple text editor. For most applications, however, saving data using the shelve module is the preferred way to save variables to a file. Only basic data types such as integers, floats, strings, lists, and dictionaries can be written to a file as simple text. File objects, for example, cannot be encoded as text.
 
-#
+# 
+# Example of reading lines from a file, then iterating through them!
+somefile = open('c:\\test\\setuplog.log')
+
+lst = somefile.readlines()
+
+for c, i in enumerate(lst):
+    if '5.08' in i:
+        print(c)
+        print(i)
+        print(lst[c-1])
+
+    else:
+        print('Nothing in line' + str(c))
