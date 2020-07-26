@@ -51,4 +51,4 @@ def backupToZip(folder):
     print('Done.')
 
 
-backupToZip('C:\\delicious')
+backupToZip('C:\\Mando')
